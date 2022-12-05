@@ -24,7 +24,12 @@ type Table struct {
 type TableItem struct {
 	Struct    *TableItemStruct
 	Values    []*TableItemValue
+	Ext       map[string]interface{}
 	valuesMap map[string]*TableItemValue
+}
+
+func NewTableItem() *TableItem {
+	return &TableItem{Ext: map[string]interface{}{}}
 }
 
 func (ti *TableItem) get(value string) *TableItemValue {
